@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+
+@theme {
+  --font-headline: "Noto Sans SC", sans-serif;
+  --font-body: "Noto Sans SC", sans-serif;
+  --font-label: "Noto Sans SC", sans-serif;
+
+  --color-primary: #923f5f;
+  --color-primary-dim: #843353;
+  --color-primary-container: #fe97b9;
+  --color-on-primary: #ffeff1;
+  --color-on-primary-container: #621837;
+
+  --color-secondary: #1d608a;
+  --color-secondary-container: #a8d7ff;
+  --color-on-secondary: #eaf4ff;
+  --color-on-secondary-container: #004c72;
+
+  --color-tertiary: #635d15;
+  --color-tertiary-container: #f7ee96;
+  --color-on-tertiary: #fff5a0;
+
+  --color-background: #fbf5f0;
+  --color-surface: #fbf5f0;
+  --color-on-surface: #302e2b;
+  --color-on-surface-variant: #5e5b57;
+  --color-surface-container-low: #f6f0ea;
+  --color-surface-container: #ede7e2;
+  --color-surface-container-high: #e7e1dc;
+  --color-surface-container-highest: #e2dcd6;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-variant: #e2dcd6;
+
+  --color-outline: #7a7672;
+  --color-outline-variant: #b1aca8;
+
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container;
+    min-height: 100dvh;
+  }
+}
+
+.glass-panel {
+  background: rgba(251, 245, 240, 0.7);
+  backdrop-filter: blur(20px);
+}
+
+.cloud-bg {
+  background: radial-gradient(circle at 20% 30%, #ffeff1 0%, transparent 40%),
+              radial-gradient(circle at 80% 70%, #eaf4ff 0%, transparent 40%);
+}
+
+.bg-confetti-pattern {
+  background-color: #fbf5f0;
+  background-image: radial-gradient(#fe97b9 1px, transparent 1px), radial-gradient(#a8d7ff 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+.well-glow {
+  box-shadow: 0 0 60px rgba(247, 238, 150, 0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
