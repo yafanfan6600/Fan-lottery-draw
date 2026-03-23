@@ -44,12 +44,18 @@ export default function App() {
   useEffect(() => {
     (async () => {
       try {
-        const h = await fetch('/api/history').then(r => r.ok ? r.json() : []);
-        if (Array.isArray(h)) setHistory(h);
+        const res = await fetch('/api/history');
+        if (res.ok) {
+          const h = await res.json();
+          if (Array.isArray(h)) setHistory(h);
+        }
       } catch {}
       try {
-        const s = await fetch('/api/stats').then(r => r.ok ? r.json() : null);
-        if (s && typeof s.totalBlessings === 'number') setTotalBlessings(s.totalBlessings);
+        const resS = await fetch('/api/stats');
+        if (resS.ok) {
+          const s = await resS.json();
+          if (s && typeof s.totalBlessings === 'number') setTotalBlessings(s.totalBlessings);
+        }
       } catch {}
     })();
   }, []);
